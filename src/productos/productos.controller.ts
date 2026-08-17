@@ -21,6 +21,11 @@ export class ProductosController {
         return await this.productosService.buscarPorNombre(nombre)
     }
 
+    @Get('busqueda/:busqueda')
+    async buscarPorCodigoOrNombre(@Param('busqueda') termino:string){
+        return await this.productosService.buscarPorNombreOrCodigo(termino)
+    }
+
     @Put('aumentarStock')
     async aumentarStock(@Body() cantidad: AumentarStockDto){
         console.log(cantidad)

@@ -24,6 +24,15 @@ export class ProductosService{
         return await this.productosRepository.find({where: {nombre: Like(`%${nombre}%`)}})
     }
 
+    async buscarPorNombreOrCodigo(termino: string){
+        return await this.productosRepository.findOne({
+            where:[
+                {nombre: Like(`%${termino}%`)}, 
+                {codigoBarras: Like(termino)}
+            ]
+        })
+    }
+
     async crearProducto(producto: CreateProductoDto) {
         const nuevoProducto = this.productosRepository.create(producto);
         return await this.productosRepository.save(nuevoProducto);
