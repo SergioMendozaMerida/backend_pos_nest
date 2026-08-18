@@ -52,7 +52,9 @@ export class ProductosService{
         return await this.productosRepository.findOne({ where: { id } });
     }
 
-
+    async eliminarProducto(id:number){
+        await this.productosRepository.delete(id)
+    }
 
 
 }
