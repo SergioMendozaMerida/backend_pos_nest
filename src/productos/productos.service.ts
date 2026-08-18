@@ -37,15 +37,6 @@ export class ProductosService{
         const nuevoProducto = this.productosRepository.create(producto);
         return await this.productosRepository.save(nuevoProducto);
     }
-
-    async aumentarStock(datos: AumentarStockDto){
-
-        return await this.productosRepository.increment(
-            {id: datos.id},
-            'stock',
-            datos.stock
-        )
-    }
     
     async editarProducto(id: number, producto: CreateProductoDto) {
         await this.productosRepository.update(id, producto);

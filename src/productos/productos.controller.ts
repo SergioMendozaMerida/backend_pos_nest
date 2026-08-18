@@ -26,12 +26,6 @@ export class ProductosController {
         return await this.productosService.buscarPorNombreOrCodigo(termino)
     }
 
-    @Put('aumentarStock')
-    async aumentarStock(@Body() cantidad: AumentarStockDto){
-        console.log(cantidad)
-        return await this.productosService.aumentarStock(cantidad)
-    }
-
     @Put(':id')
     async editarProducto(@Param('id') id: number, @Body() producto: CreateProductoDto) {
         return await this.productosService.editarProducto(id, producto);
