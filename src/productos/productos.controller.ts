@@ -11,6 +11,11 @@ export class ProductosController {
         return await this.productosService.obtenerTodos();
     }
 
+    @Get('/clave/:valor')
+    async buscarProducto(@Param('valor') valor:string){
+        return await this.productosService.buscarProductos(valor)
+    }
+
     @Get('/codigo:codigo')
     async buscarPorCodigo(@Param('codigo') codigo: string) {
         return await this.productosService.buscarPorCodigo(codigo);

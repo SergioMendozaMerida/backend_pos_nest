@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { Productos } from "./productos.entity";
 import { In, Like, Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
-import { AumentarStockDto, CreateProductoDto } from "./productos.dto";
+import { CreateProductoDto } from "./productos.dto";
 
 @Injectable()
 export class ProductosService{
@@ -14,6 +14,17 @@ export class ProductosService{
 
     async obtenerTodos() {
         return await this.productosRepository.find();
+    }
+
+    async buscarProductos(palabra: string){
+        return await this.productosRepository.find({
+            where:[
+                {nombre: Like(`%${palabra}%`)}, 
+                {codigoBarras: Like(palabra)},
+                {descripcion: Like(`%${palabra}%`)},
+                {categoria: Like(`%${palabra}%`)}
+            ]
+        })
     }
 
     async buscarPorCodigo(codigo: string) {
