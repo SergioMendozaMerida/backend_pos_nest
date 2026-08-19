@@ -22,3 +22,11 @@ export class RegistrarIngresoStockDTO {
     @ApiProperty({ description: 'Usuario que registra el ingreso' })
     usuario!: string;
 }
+
+export class Fechas {
+    @ApiProperty()
+    fechaInicio!: string;
+
+    @ApiProperty()
+    fechaFin!: string
+}

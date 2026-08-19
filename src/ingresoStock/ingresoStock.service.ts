@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { IngresoStock } from "./ingresoStock.entity";
-import { RegistrarIngresoStockDTO } from "./ingresoStock.dto";
+import { Fechas, RegistrarIngresoStockDTO } from "./ingresoStock.dto";
 
 @Injectable()
 export class IngresoStockService{
@@ -19,4 +19,6 @@ export class IngresoStockService{
         const nuevoIngreso = await this.ingresRepository.create(ingreso)
         return await this.ingresRepository.save(nuevoIngreso)
     }
+
+    async filtrarPorFecha(fechas: Fechas){}
 }
