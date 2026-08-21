@@ -25,8 +25,15 @@ export class RegistrarIngresoStockDTO {
 
 export class Fechas {
     @ApiProperty()
-    fechaInicio!: string;
+    fechaInicio!: Date;
 
+    @ApiProperty()
+    fechaFin!: Date
+}
+
+export class IngresoFechas {
+    @ApiProperty()
+    fechaInicio!: string;
     @ApiProperty()
     fechaFin!: string
 }

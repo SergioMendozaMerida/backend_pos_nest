@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { Between, Repository } from "typeorm";
 import { IngresoStock } from "./ingresoStock.entity";
 import { Fechas, RegistrarIngresoStockDTO } from "./ingresoStock.dto";
 
@@ -20,5 +20,11 @@ export class IngresoStockService{
         return await this.ingresRepository.save(nuevoIngreso)
     }
 
-    async filtrarPorFecha(fechas: Fechas){}
+    async filtrarPorFecha(fechas: Fechas){
+        return await this.ingresRepository.find({
+            where: {
+                fecha: Between(fechas.fechaInicio, fechas.fechaFin)
+            }
+        })
+    }
 }
