@@ -20,7 +20,7 @@ export class ProductosService{
         return await this.productosRepository.find({
             where:[
                 {nombre: Like(`%${palabra}%`)}, 
-                {codigoBarras: Like(palabra)},
+                {codigoBarras: Like(`%${palabra}%`)},
                 {descripcion: Like(`%${palabra}%`)},
                 {categoria: Like(`%${palabra}%`)}
             ]
