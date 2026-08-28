@@ -1,7 +1,7 @@
 import { CreateDateColumn, Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
-export class recibos {
+export class Recibos {
     @PrimaryGeneratedColumn()
     id!: number;
 
@@ -15,13 +15,13 @@ export class recibos {
     direccion!: string;
 
     @Column()
-    dpi!: number;
+    dpi!: string;
 
     @Column()
-    nit!: number;
+    nit!: string;
 
     @Column()
-    telefono!: number;
+    telefono!: string;
 
     @Column({type: 'decimal', precision: 10, scale: 2})
     total!: number;

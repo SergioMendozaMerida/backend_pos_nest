@@ -11,6 +11,8 @@ import { VentasMoudule } from './ventas/ventas.moducle';
 import { CajaModule } from './caja/caja.module';
 import { IngresoStockModule } from './ingresoStock/ingresoStock.module';
 import { IngresoStock } from './ingresoStock/ingresoStock.entity';
+import { RecibosModule } from './recibos/recibos.module';
+import { Recibos } from './recibos/recibos.entity';
 
 @Module({
   imports: [
@@ -19,10 +21,11 @@ import { IngresoStock } from './ingresoStock/ingresoStock.entity';
     VentasMoudule,
     CajaModule,
     IngresoStockModule,
+    RecibosModule,
     TypeOrmModule.forRoot({
       type: 'better-sqlite3',
       database: 'tasks.db',
-      entities: [Productos, Categorias, Ventas, IngresoStock],
+      entities: [Productos, Categorias, Ventas, IngresoStock, Recibos],
       synchronize: true,
     }),
   ],
