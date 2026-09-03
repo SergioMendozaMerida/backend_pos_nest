@@ -28,3 +28,10 @@ export class CreateVentaDto {
     @ApiProperty({ description: 'Usuario que realizó la venta' })
     Usuario!: string;
 }
+
+export class IngresoFechas {
+    @ApiProperty()
+    fechaInicio!: string;
+    @ApiProperty()
+    fechaFin!: string
+}
