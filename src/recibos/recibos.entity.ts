@@ -1,11 +1,11 @@
-import { CreateDateColumn, Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class Recibos {
     @PrimaryGeneratedColumn()
     id!: number;
 
-    @CreateDateColumn()
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     fecha!: Date;
 
     @Column()

@@ -1,6 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateReciboDto {
+
+    @ApiProperty({ description: 'Fecha del recibo' })
+    fecha!: Date;
+
     @ApiProperty({ description: 'Nombre del cliente del recibo' })
     nombre_cliente!: string;
 
