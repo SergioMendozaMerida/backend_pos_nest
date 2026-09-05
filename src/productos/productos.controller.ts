@@ -1,11 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from "@nestjs/common";
 import { ProductosService } from "./productos.service";
 import { AumentarStockDto, CreateProductoDto } from "./productos.dto";
+import { AuthGuard } from "node_modules/@nestjs/passport/dist/auth.guard";
 
 @Controller('productos')
 export class ProductosController {
     constructor(private readonly productosService: ProductosService) {}
 
+    @UseGuards(AuthGuard('jwt'))
     @Get()
     async obtenerTodos() {
         return await this.productosService.obtenerTodos();
